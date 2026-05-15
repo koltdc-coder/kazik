@@ -53,7 +53,7 @@ body{
     justify-content:space-between;
     gap:10px;
 
-    padding:18px;
+    padding:14px;
 
     border-radius:24px;
 
@@ -189,26 +189,26 @@ body{
 
 .gift{
 
-    width: 48px;
-    height: 48px;
+   width: 40px;
+    height: 40px;
     border-radius: 18px;
     background: rgba(255, 255, 255, .08);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .promo-title{
-    font-size: 12px;
+   font-size: 12px;
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
 }
 
 .promo-bonus{
-   font-size: 22px;
+   font-size: 20px;
     line-height: 1;
-    font-weight: 800;
+    font-weight: 700;
     color: #22ff73;
 }
 
@@ -219,8 +219,8 @@ body{
 }
 
 .info{
-width: 32px;
-    height: 32px;
+   width: 30px;
+    height: 30px;
     border-radius: 50%;
     background: #f3d38c;
     color: #000;
@@ -232,18 +232,21 @@ width: 32px;
     cursor: pointer;
 }
 
-.timer{
+.copy-promo-btn{
 
-   min-width: 72px;
+    min-width: 72px;
     height: 42px;
     border-radius: 18px;
-    background: #541616;
-    border: 2px solid #ff6868;
+    background: linear-gradient(180deg, #ffe18c, #f0ae38);
+    border: none;
+    color: #000;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    padding: 0 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
-    font-weight: 800;
 }
 
 /* GAMES */
@@ -391,61 +394,35 @@ width: 32px;
     color: #ff7187;
 }
 
-/* MODAL */
-
-.modal{
-
-    position:fixed;
-    inset:0;
-
-    background:rgba(0,0,0,.55);
-
-    backdrop-filter:blur(6px);
-
-    display:flex;
-    align-items:flex-start;
-    justify-content:center;
-
-    padding:110px 14px 20px;
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:.3s;
-
-    z-index:99999;
+/* Верхняя панель с промокодом (слайд сверху) */
+.top-notification{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-120%);
+    width: 92%;
+    max-width: 430px;
+    z-index: 99999;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
 }
 
-.modal.show{
-    opacity:1;
-    visibility:visible;
+.top-notification.show{
+    transform: translateX(-50%) translateY(10px);
+    pointer-events: auto;
 }
 
-.modal-box{
-
-    width:100%;
-
-    max-width:430px;
-
-    border-radius:34px;
-
-    padding:24px;
-
-    background:
-    radial-gradient(circle at top,#29170d 0%,#080402 100%);
-
-    border:2px solid rgba(255,196,0,.18);
-
-    box-shadow:
-    0 0 40px rgba(255,170,0,.12),
-    inset 0 0 30px rgba(255,170,0,.05);
-
-    position:relative;
+.notification-inner{
+    border-radius: 34px;
+    padding: 24px;
+    background: radial-gradient(circle at top, #29170d 0%, #080402 100%);
+    border: 2px solid rgba(255,196,0,.18);
+    box-shadow: 0 0 40px rgba(255,170,0,.12), inset 0 0 30px rgba(255,170,0,.05);
+    position: relative;
 }
 
-.modal-close{
-
-   position: absolute;
+.notif-close{
+    position: absolute;
     top: 12px;
     right: 12px;
     width: 40px;
@@ -459,16 +436,15 @@ width: 32px;
     justify-content: center;
     font-size: 38px;
     cursor: pointer;
-    
+    line-height: 1;
 }
 
-.modal-top{
-    display:flex;
-    gap:18px;
+.notif-top{
+    display: flex;
+    gap: 18px;
 }
 
-.modal-gift{
-
+.notif-gift{
     width: 72px;
     height: 72px;
     min-width: 72px;
@@ -480,35 +456,35 @@ width: 32px;
     font-size: 36px;
 }
 
-.modal-title{
-    font-size:20px;
-    font-weight:800;
-    margin-bottom:8px;
+.notif-title{
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 8px;
 }
 
-.modal-text{
-    font-size:16px;
-    line-height:1.2;
-    opacity:.92;
+.notif-text{
+    font-size: 16px;
+    line-height: 1.2;
+    opacity: .92;
 }
 
 .promo-copy{
 
-    margin-top:26px;
+    margin-top: 26px;
 
-    border-radius:28px;
+    border-radius: 28px;
 
-    padding:18px;
+    padding: 18px;
 
     background:
     radial-gradient(circle at center,#013d15 0%,#001307 100%);
 
-    border:2px solid rgba(0,255,98,.22);
+    border: 2px solid rgba(0,255,98,.22);
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
 }
 
 .copy-left small{
@@ -603,13 +579,13 @@ width: 32px;
 
         <div class="promo-right">
 
-            <div class="info" id="openModal">
+            <div class="info" id="openNotification">
                 i
             </div>
 
-            <div class="timer" id="timer">
-                03:00
-            </div>
+            <button class="copy-promo-btn" id="promoCopyBtn">
+                Copy
+            </button>
 
         </div>
 
@@ -725,29 +701,29 @@ width: 32px;
 
 </div>
 
-<!-- MODAL -->
+<!-- Верхняя панель с промокодом (появляется по клику на "i") -->
 
-<div class="modal" id="modal">
+<div class="top-notification" id="topNotification">
 
-    <div class="modal-box">
+    <div class="notification-inner">
 
-        <div class="modal-close" id="closeModal">
+        <div class="notif-close" id="closeNotification">
             ×
         </div>
 
-        <div class="modal-top">
+        <div class="notif-top">
 
-            <div class="modal-gift">
+            <div class="notif-gift">
                 🎁
             </div>
 
             <div>
 
-                <div class="modal-title">
+                <div class="notif-title">
                     Заберите бонус
                 </div>
 
-                <div class="modal-text">
+                <div class="notif-text">
                     Зарегистрируйтесь сейчас и получите бонус 500% и 500FS, используя этот промокод.
                 </div>
 
@@ -761,13 +737,13 @@ width: 32px;
 
                 <small>ПРОМОКОД</small>
 
-                <h2 id="promoCode">
+                <h2 id="topPromoCode">
                     XLSOFT
                 </h2>
 
             </div>
 
-            <button class="copy-btn" id="copyBtn">
+            <button class="copy-btn" id="topCopyBtn">
                 Copy
             </button>
 
@@ -846,29 +822,6 @@ for(let i=0;i<20;i++){
 
 ticker.innerHTML = tickerHtml + tickerHtml;
 
-/* TIMER */
-
-let seconds = 180;
-
-setInterval(()=>{
-
-    let min = Math.floor(seconds/60);
-    let sec = seconds%60;
-
-    if(sec < 10) sec = '0'+sec;
-    if(min < 10) min = '0'+min;
-
-    document.getElementById('timer').innerText =
-    `${min}:${sec}`;
-
-    seconds--;
-
-    if(seconds < 0){
-        seconds = 180;
-    }
-
-},1000);
-
 /* JACKPOT */
 
 const jackpot = document.getElementById('jackpot');
@@ -924,70 +877,57 @@ function jackpotLoop(){
 
     showJackpot();
 
+    // случайный интервал от 11 до 17 секунд
     const next =
-    Math.floor(Math.random()*7000)+7000;
+    Math.floor(Math.random() * 6000) + 11000;
 
-    setTimeout(jackpotLoop,next);
-
-}
-
-setTimeout(jackpotLoop,4000);
-
-/* MODAL */
-
-const modal =
-document.getElementById('modal');
-
-function openModal(){
-
-    modal.classList.add('show');
+    setTimeout(jackpotLoop, next);
 
 }
 
-function closeModal(){
+setTimeout(jackpotLoop, 4000);
 
-    modal.classList.remove('show');
+/* ВЕРХНЯЯ ПАНЕЛЬ С ПРОМОКОДОМ (слайд сверху) */
 
+const topNotification = document.getElementById('topNotification');
+const promoCode = 'XLSOFT';
+
+function showNotification() {
+    topNotification.classList.add('show');
+    // автоматически скрыть через 8 секунд, если не закрыли вручную
+    clearTimeout(window.notifTimeout);
+    window.notifTimeout = setTimeout(() => {
+        topNotification.classList.remove('show');
+    }, 8000);
 }
 
-setTimeout(()=>{
+function hideNotification() {
+    topNotification.classList.remove('show');
+    clearTimeout(window.notifTimeout);
+}
 
-    openModal();
+document.getElementById('openNotification').addEventListener('click', showNotification);
+document.getElementById('closeNotification').addEventListener('click', hideNotification);
 
-},3000);
+// Копирование из кнопки в promo-right (рядом с i)
+document.getElementById('promoCopyBtn').addEventListener('click', async function() {
+    await navigator.clipboard.writeText(promoCode);
+    const btn = this;
+    btn.textContent = 'Copied';
+    setTimeout(() => {
+        btn.textContent = 'Copy';
+    }, 1500);
+});
 
-document
-.getElementById('openModal')
-.onclick = openModal;
-
-document
-.getElementById('closeModal')
-.onclick = closeModal;
-
-/* COPY */
-
-document
-.getElementById('copyBtn')
-.onclick = async ()=>{
-
-    const code =
-    document.getElementById('promoCode')
-    .innerText;
-
-    await navigator.clipboard.writeText(code);
-
-    const btn =
-    document.getElementById('copyBtn');
-
-    btn.innerText = 'Copied';
-
-    setTimeout(()=>{
-
-        btn.innerText = 'Copy';
-
-    },1500);
-
-};
+// Копирование из верхней панели
+document.getElementById('topCopyBtn').addEventListener('click', async function() {
+    await navigator.clipboard.writeText(promoCode);
+    const btn = this;
+    btn.textContent = 'Copied';
+    setTimeout(() => {
+        btn.textContent = 'Copy';
+    }, 1500);
+});
 
 </script>
 
