@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 
@@ -133,11 +133,11 @@ body{
 
 .win-box{
 
-   min-width: 180px;
+  min-width: 180px;
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 16px;
+    padding: 8px 12px;
     border-radius: 22px;
     background: linear-gradient(180deg, #1d130a, #080502);
     border: 1px solid rgba(255, 179, 0, .12);
@@ -169,25 +169,16 @@ body{
 
 .promo{
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-
-    padding:16px;
-
-    border-radius:28px;
-
-    background:
-    radial-gradient(circle at center,#013c14 0%,#001307 100%);
-
-    border:2px solid rgba(0,255,106,.24);
-
-    box-shadow:
-    0 0 30px rgba(0,255,94,.12),
-    inset 0 0 30px rgba(0,255,94,.05);
-
-    margin-bottom:18px;
+   display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 28px;
+    background: radial-gradient(circle at center, #013c14 0%, #001307 100%);
+    border: 2px solid rgba(0, 255, 106, .24);
+    box-shadow: 0 0 30px rgba(0, 255, 94, .12), inset 0 0 30px rgba(0, 255, 94, .05);
+    margin-bottom: 18px;
 }
 
 .promo-left{
@@ -198,31 +189,27 @@ body{
 
 .gift{
 
-    width:58px;
-    height:58px;
-
-    border-radius:18px;
-
-    background:rgba(255,255,255,.08);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:28px;
+    width: 48px;
+    height: 48px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
 }
 
 .promo-title{
-    font-size:14px;
-    font-weight:600;
-    letter-spacing:1px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
 }
 
 .promo-bonus{
-    font-size:18px;
-    line-height:1;
-    font-weight:800;
-    color:#22ff73;
+   font-size: 22px;
+    line-height: 1;
+    font-weight: 800;
+    color: #22ff73;
 }
 
 .promo-right{
@@ -232,31 +219,30 @@ body{
 }
 
 .info{
-
-    width: 40px;
-    height: 40px;
+width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: #f3d38c;
     color: #000;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 800;
     cursor: pointer;
 }
 
 .timer{
 
-   min-width: 88px;
-    height: 48px;
+   min-width: 72px;
+    height: 42px;
     border-radius: 18px;
     background: #541616;
     border: 2px solid #ff6868;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 800;
 }
 
@@ -338,64 +324,44 @@ body{
     text-align:center;
     font-size:14px;
     font-weight:700;
-    letter-spacing:2px;
-    margin-bottom:16px;
+    letter-spacing:1px;
+    margin-bottom:12px;
 }
 
 .play-btn{
 
-    width:100%;
-    height:56px;
-
-    border:none;
-    outline:none;
-
-    border-radius:18px;
-
-    background:
-    linear-gradient(180deg,#ffe18c,#f0ae38);
-
-    color:#000;
-
-    font-size:17px;
-    font-weight:800;
-
-    cursor:pointer;
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffe18c, #f0ae38);
+    color: #000;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
 }
 
 /* JACKPOT */
 
 .jackpot{
 
-    position:fixed;
-
-    left:50%;
-    transform:translateX(-50%);
-
-    bottom:-200px;
-
-    width:92%;
-    max-width:450px;
-
-    padding:18px;
-
-    border-radius:28px;
-
-    background:
-    linear-gradient(90deg,#45141c,#2c160b);
-
-    border:2px solid rgba(255,90,115,.45);
-
-    box-shadow:
-    0 0 35px rgba(255,90,115,.18);
-
-    display:flex;
-    align-items:center;
-    gap:14px;
-
-    transition:.55s;
-
-    z-index:9999;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -200px;
+    width: 92%;
+    max-width: 450px;
+    padding: 14px;
+    border-radius: 28px;
+    background: linear-gradient(90deg, #45141c, #2c160b);
+    border: 2px solid rgba(255, 90, 115, .45);
+    box-shadow: 0 0 35px rgba(255, 90, 115, .18);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: .55s;
+    z-index: 9999;
 }
 
 .jackpot.show{
@@ -404,24 +370,24 @@ body{
 
 .flag{
 
-        width: 62px;
-    height: 62px;
+        width: 48px;
+    height: 48px;
     border-radius: 18px;
     background: rgba(255, 255, 255, .08);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 36px;
+    font-size: 30px;
 }
 
 .jackpot small{
-    font-size:14px;
+    font-size:12px;
     opacity:.85;
 }
 
 .jackpot h2{
-    margin-top: 3px;
-    font-size: 20px;
+    margin-top: 2px;
+    font-size: 18px;
     color: #ff7187;
 }
 
@@ -725,10 +691,10 @@ body{
                 XL SOFT SIGNALS
             </div>
 
-            <button
+             <button
             class="play-btn"
-            onclick="window.location.href='https://t.me/'">
-                ✈ JOIN NOW
+            onclick="window.location.href='https://google.com'">
+                ▶ PLAY
             </button>
 
         </div>
