@@ -865,27 +865,31 @@ function showJackpot(){
 
     jackpot.classList.add('show');
 
+    // Автоматически скрываем через 5 секунд
     setTimeout(()=>{
-
         jackpot.classList.remove('show');
-
     },5000);
 
 }
 
-function jackpotLoop(){
+let jackpotTimer = null;
 
-    showJackpot();
-
-    // случайный интервал от 11 до 17 секунд
-    const next =
-    Math.floor(Math.random() * 6000) + 11000;
-
-    setTimeout(jackpotLoop, next);
-
+function scheduleNextJackpot() {
+    // Очищаем предыдущий таймер на всякий случай
+    if (jackpotTimer) clearTimeout(jackpotTimer);
+    
+    // Случайный интервал от 11 до 17 секунд
+    const next = Math.floor(Math.random() * 6000) + 11000;
+    
+    jackpotTimer = setTimeout(() => {
+        showJackpot();
+        // После показа планируем следующий
+        scheduleNextJackpot();
+    }, next);
 }
 
-setTimeout(jackpotLoop, 4000);
+// Запускаем первый джекпот через 11–17 секунд после загрузки
+scheduleNextJackpot();
 
 /* ВЕРХНЯЯ ПАНЕЛЬ С ПРОМОКОДОМ (слайд сверху) */
 
@@ -911,22 +915,31 @@ document.getElementById('closeNotification').addEventListener('click', hideNotif
 
 // Копирование из кнопки в promo-right (рядом с i)
 document.getElementById('promoCopyBtn').addEventListener('click', async function() {
-    await navigator.clipboard.writeText(promoCode);
-    const btn = this;
-    btn.textContent = 'Copied';
-    setTimeout(() => {
-        btn.textContent = 'Copy';
-    }, 1500);
+    try {
+        await navigator.clipboard.writeText(promoCode);
+        const btn = this;
+        btn.textContent = 'Copied';
+        setTimeout(() => {
+            btn.textContent = 'Copy';
+        }, 1500);
+    } catch (err) {
+        // fallback
+        alert('Скопируйте вручную: ' + promoCode);
+    }
 });
 
 // Копирование из верхней панели
 document.getElementById('topCopyBtn').addEventListener('click', async function() {
-    await navigator.clipboard.writeText(promoCode);
-    const btn = this;
-    btn.textContent = 'Copied';
-    setTimeout(() => {
-        btn.textContent = 'Copy';
-    }, 1500);
+    try {
+        await navigator.clipboard.writeText(promoCode);
+        const btn = this;
+        btn.textContent = 'Copied';
+        setTimeout(() => {
+            btn.textContent = 'Copy';
+        }, 1500);
+    } catch (err) {
+        alert('Скопируйте вручную: ' + promoCode);
+    }
 });
 
 </script>
