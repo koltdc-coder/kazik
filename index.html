@@ -1,0 +1,1029 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+/>
+
+<title>XL SOFT</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+    background:#000;
+    font-family:'Montserrat',sans-serif;
+    color:#fff;
+}
+
+body{
+    background:
+    radial-gradient(circle at top,#201207 0%,#000 45%);
+}
+
+.app{
+    width:100%;
+    max-width:480px;
+    margin:auto;
+    padding:14px;
+    min-height:100vh;
+}
+
+/* TOP */
+
+.stats{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+
+    padding:18px;
+
+    border-radius:24px;
+
+    background:
+    linear-gradient(180deg,#21140b,#090502);
+
+    border:1px solid rgba(255,170,0,.16);
+
+    box-shadow:
+    0 0 20px rgba(255,136,0,.10),
+    inset 0 0 25px rgba(255,166,0,.04);
+
+    margin-bottom:14px;
+}
+
+.stat{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    font-size:15px;
+    font-weight:700;
+}
+
+.light{
+    opacity:.7;
+    font-weight:500;
+}
+
+.red-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#ff4b4b;
+    box-shadow:0 0 10px #ff4b4b;
+
+    animation:pulse 1.2s infinite;
+}
+
+.green{
+    color:#2cff73;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+    50%{
+        transform:scale(1.45);
+        opacity:.45;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+/* TICKER */
+
+.ticker{
+    overflow:hidden;
+    margin-bottom:16px;
+}
+
+.ticker-track{
+    display:flex;
+    gap:12px;
+    width:max-content;
+
+    animation:ticker 30s linear infinite;
+}
+
+.win-box{
+
+   min-width: 180px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #1d130a, #080502);
+    border: 1px solid rgba(255, 179, 0, .12);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.green-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#2cff73;
+    box-shadow:0 0 10px #2cff73;
+}
+
+@keyframes ticker{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
+}
+
+/* PROMO */
+
+.promo{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+
+    padding:16px;
+
+    border-radius:28px;
+
+    background:
+    radial-gradient(circle at center,#013c14 0%,#001307 100%);
+
+    border:2px solid rgba(0,255,106,.24);
+
+    box-shadow:
+    0 0 30px rgba(0,255,94,.12),
+    inset 0 0 30px rgba(0,255,94,.05);
+
+    margin-bottom:18px;
+}
+
+.promo-left{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.gift{
+
+    width:58px;
+    height:58px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.08);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+}
+
+.promo-title{
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:1px;
+}
+
+.promo-bonus{
+    font-size:18px;
+    line-height:1;
+    font-weight:800;
+    color:#22ff73;
+}
+
+.promo-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.info{
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f3d38c;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.timer{
+
+   min-width: 88px;
+    height: 48px;
+    border-radius: 18px;
+    background: #541616;
+    border: 2px solid #ff6868;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+/* GAMES */
+
+.games{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.card{
+
+    position:relative;
+
+    padding:14px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(180deg,#24170d,#090502);
+
+    border:1px solid rgba(255,183,0,.18);
+
+    box-shadow:
+    0 0 20px rgba(255,162,0,.10),
+    inset 0 0 24px rgba(255,162,0,.04);
+}
+
+.badge{
+
+    position:absolute;
+
+    top:10px;
+    right:10px;
+
+    padding:7px 12px;
+
+    border-radius:16px;
+
+    font-size:13px;
+    font-weight:800;
+}
+
+.hot{
+    background:#ffd84d;
+    color:#000;
+}
+
+.new{
+    background:#4be4ff;
+    color:#000;
+}
+
+.vip{
+    background:#ffe36d;
+    color:#000;
+}
+
+.top{
+    background:#ff4b4b;
+}
+
+.game-image{
+    width:100%;
+    aspect-ratio:1/1;
+    border-radius:18px;
+    overflow:hidden;
+    margin-bottom:14px;
+}
+
+.game-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.game-title{
+    text-align:center;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:2px;
+    margin-bottom:16px;
+}
+
+.play-btn{
+
+    width:100%;
+    height:56px;
+
+    border:none;
+    outline:none;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(180deg,#ffe18c,#f0ae38);
+
+    color:#000;
+
+    font-size:17px;
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+/* JACKPOT */
+
+.jackpot{
+
+    position:fixed;
+
+    left:50%;
+    transform:translateX(-50%);
+
+    bottom:-200px;
+
+    width:92%;
+    max-width:450px;
+
+    padding:18px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(90deg,#45141c,#2c160b);
+
+    border:2px solid rgba(255,90,115,.45);
+
+    box-shadow:
+    0 0 35px rgba(255,90,115,.18);
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    transition:.55s;
+
+    z-index:9999;
+}
+
+.jackpot.show{
+    bottom:18px;
+}
+
+.flag{
+
+        width: 62px;
+    height: 62px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+}
+
+.jackpot small{
+    font-size:14px;
+    opacity:.85;
+}
+
+.jackpot h2{
+    margin-top: 3px;
+    font-size: 20px;
+    color: #ff7187;
+}
+
+/* MODAL */
+
+.modal{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    backdrop-filter:blur(6px);
+
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+
+    padding:110px 14px 20px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:99999;
+}
+
+.modal.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.modal-box{
+
+    width:100%;
+
+    max-width:430px;
+
+    border-radius:34px;
+
+    padding:24px;
+
+    background:
+    radial-gradient(circle at top,#29170d 0%,#080402 100%);
+
+    border:2px solid rgba(255,196,0,.18);
+
+    box-shadow:
+    0 0 40px rgba(255,170,0,.12),
+    inset 0 0 30px rgba(255,170,0,.05);
+
+    position:relative;
+}
+
+.modal-close{
+
+   position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, .2);
+    background: rgba(255, 255, 255, .06);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    cursor: pointer;
+    
+}
+
+.modal-top{
+    display:flex;
+    gap:18px;
+}
+
+.modal-gift{
+
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, .08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+}
+
+.modal-title{
+    font-size:20px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.modal-text{
+    font-size:16px;
+    line-height:1.2;
+    opacity:.92;
+}
+
+.promo-copy{
+
+    margin-top:26px;
+
+    border-radius:28px;
+
+    padding:18px;
+
+    background:
+    radial-gradient(circle at center,#013d15 0%,#001307 100%);
+
+    border:2px solid rgba(0,255,98,.22);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+}
+
+.copy-left small{
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0px;
+    opacity: .75;
+    margin-bottom: 0px;
+}
+
+.copy-left h2{
+    color: #22ff73;
+    font-size: 24px;
+    letter-spacing: 3px;
+}
+
+.copy-btn{
+
+    border: none;
+    min-width: 120px;
+    height: 52px;
+    border-radius: 22px;
+    background: #1df36d;
+    color: #000;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- TOP -->
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <div class="red-dot"></div>
+
+            <div>
+                <span id="online">3114</span>
+                <span class="light"> playing now</span>
+            </div>
+
+        </div>
+
+        <div class="stat">
+
+            <span class="green">
+                +<span id="wins">143</span>
+            </span>
+
+            <span class="light"> won last hour</span>
+
+        </div>
+
+    </div>
+
+    <!-- TICKER -->
+
+    <div class="ticker">
+        <div class="ticker-track" id="ticker"></div>
+    </div>
+
+    <!-- PROMO -->
+
+    <div class="promo">
+
+        <div class="promo-left">
+
+            <div class="gift">🎁</div>
+
+            <div>
+
+                <div class="promo-title">
+                    PROMOCODE: XLSOFT
+                </div>
+
+                <div class="promo-bonus">
+                    +500% & 500FS
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="promo-right">
+
+            <div class="info" id="openModal">
+                i
+            </div>
+
+            <div class="timer" id="timer">
+                03:00
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- GAMES -->
+
+    <div class="games">
+
+        <div class="card">
+
+            <div class="badge hot">HOT</div>
+
+           <div class="game-image">
+    <img src="game-1.gif">
+</div>
+
+            <div class="game-title">
+                AVIAMASTERS 2
+            </div>
+
+            <button
+            class="play-btn"
+            onclick="window.location.href='https://google.com'">
+                ▶ PLAY
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <div class="badge new">NEW</div>
+
+            <div class="game-image">
+                <img src="game-2.gif">
+            </div>
+
+            <div class="game-title">
+                TOWER RUSH
+            </div>
+
+            <button
+            class="play-btn"
+            onclick="window.location.href='https://google.com'">
+                ▶ PLAY
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <div class="badge vip">VIP</div>
+
+            <div class="game-image">
+                <img src="game-3.gif">
+            </div>
+
+            <div class="game-title">
+                TAPPY BIRD
+            </div>
+
+            <button
+            class="play-btn"
+            onclick="window.location.href='https://google.com'">
+                ▶ PLAY
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <div class="badge top">TOP</div>
+
+            <div class="game-image">
+                 <img src="game-4.gif">
+            </div>
+
+            <div class="game-title">
+                XL SOFT SIGNALS
+            </div>
+
+            <button
+            class="play-btn"
+            onclick="window.location.href='https://t.me/'">
+                ✈ JOIN NOW
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- JACKPOT -->
+
+<div class="jackpot" id="jackpot">
+
+    <div class="flag" id="flag">
+        🇫🇷
+    </div>
+
+    <div>
+
+        <small id="jackpotId">
+            ID: 428***
+        </small>
+
+        <h2 id="jackpotText">
+            JACKPOT +$7,103
+        </h2>
+
+    </div>
+
+</div>
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-box">
+
+        <div class="modal-close" id="closeModal">
+            ×
+        </div>
+
+        <div class="modal-top">
+
+            <div class="modal-gift">
+                🎁
+            </div>
+
+            <div>
+
+                <div class="modal-title">
+                    Заберите бонус
+                </div>
+
+                <div class="modal-text">
+                    Зарегистрируйтесь сейчас и получите бонус 500% и 500FS, используя этот промокод.
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="promo-copy">
+
+            <div class="copy-left">
+
+                <small>ПРОМОКОД</small>
+
+                <h2 id="promoCode">
+                    XLSOFT
+                </h2>
+
+            </div>
+
+            <button class="copy-btn" id="copyBtn">
+                Copy
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* ONLINE */
+
+let online = 3114;
+
+setInterval(()=>{
+
+    online += Math.floor(Math.random()*11)-5;
+
+    if(online < 2800) online = 2800;
+    if(online > 3400) online = 3400;
+
+    document.getElementById('online').innerText = online;
+
+},2500);
+
+/* WINS */
+
+let wins = 143;
+
+setInterval(()=>{
+
+    wins += Math.floor(Math.random()*7)-3;
+
+    if(wins < 100) wins = 100;
+    if(wins > 220) wins = 220;
+
+    document.getElementById('wins').innerText = wins;
+
+},3000);
+
+/* TICKER */
+
+const ticker = document.getElementById('ticker');
+
+function tickerItem(){
+
+    const id =
+    Math.floor(Math.random()*900)+100;
+
+    const amount =
+    Math.floor(Math.random()*900)+100;
+
+    return `
+    <div class="win-box">
+
+        <div class="green-dot"></div>
+
+        <div>
+            ID: ${id}***
+        </div>
+
+        <div class="green">
+            +$${amount}
+        </div>
+
+    </div>
+    `;
+}
+
+let tickerHtml = '';
+
+for(let i=0;i<20;i++){
+    tickerHtml += tickerItem();
+}
+
+ticker.innerHTML = tickerHtml + tickerHtml;
+
+/* TIMER */
+
+let seconds = 180;
+
+setInterval(()=>{
+
+    let min = Math.floor(seconds/60);
+    let sec = seconds%60;
+
+    if(sec < 10) sec = '0'+sec;
+    if(min < 10) min = '0'+min;
+
+    document.getElementById('timer').innerText =
+    `${min}:${sec}`;
+
+    seconds--;
+
+    if(seconds < 0){
+        seconds = 180;
+    }
+
+},1000);
+
+/* JACKPOT */
+
+const jackpot = document.getElementById('jackpot');
+
+const flags = [
+'🇺🇸',
+'🇨🇦',
+'🇩🇪',
+'🇧🇷',
+'🇺🇦',
+'🇺🇿',
+'🇵🇱',
+'🇮🇹',
+'🇫🇷',
+'🇪🇸'
+];
+
+function showJackpot(){
+
+    const id =
+    Math.floor(Math.random()*900)+100;
+
+    const amount =
+    (
+        Math.floor(Math.random()*9000)+500
+    ).toLocaleString();
+
+    const flag =
+    flags[
+        Math.floor(Math.random()*flags.length)
+    ];
+
+    document.getElementById('flag').innerText =
+    flag;
+
+    document.getElementById('jackpotId').innerText =
+    `ID: ${id}***`;
+
+    document.getElementById('jackpotText').innerText =
+    `JACKPOT +$${amount}`;
+
+    jackpot.classList.add('show');
+
+    setTimeout(()=>{
+
+        jackpot.classList.remove('show');
+
+    },5000);
+
+}
+
+function jackpotLoop(){
+
+    showJackpot();
+
+    const next =
+    Math.floor(Math.random()*7000)+7000;
+
+    setTimeout(jackpotLoop,next);
+
+}
+
+setTimeout(jackpotLoop,4000);
+
+/* MODAL */
+
+const modal =
+document.getElementById('modal');
+
+function openModal(){
+
+    modal.classList.add('show');
+
+}
+
+function closeModal(){
+
+    modal.classList.remove('show');
+
+}
+
+setTimeout(()=>{
+
+    openModal();
+
+},3000);
+
+document
+.getElementById('openModal')
+.onclick = openModal;
+
+document
+.getElementById('closeModal')
+.onclick = closeModal;
+
+/* COPY */
+
+document
+.getElementById('copyBtn')
+.onclick = async ()=>{
+
+    const code =
+    document.getElementById('promoCode')
+    .innerText;
+
+    await navigator.clipboard.writeText(code);
+
+    const btn =
+    document.getElementById('copyBtn');
+
+    btn.innerText = 'Copied';
+
+    setTimeout(()=>{
+
+        btn.innerText = 'Copy';
+
+    },1500);
+
+};
+
+</script>
+
+</body>
+</html>
