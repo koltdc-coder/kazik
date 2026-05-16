@@ -49,25 +49,16 @@ body{
 
 .stats{
 
-    display:flex;
-    align-items:center;
-    justify-content:space-around;
-    gap:10px;
-
-    padding:14px;
-
-    border-radius:24px;
-
-    background:
-    linear-gradient(180deg,#21140b,#090502);
-
-    border:1px solid rgba(255,170,0,.16);
-
-    box-shadow:
-    0 0 20px rgba(255,136,0,.10),
-    inset 0 0 25px rgba(255,166,0,.04);
-
-    margin-bottom:14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0px;
+    padding: 8px;
+    border-radius: 24px;
+    background: linear-gradient(180deg, #21140b, #090502);
+    border: 1px solid rgba(255, 170, 0, .16);
+    box-shadow: 0 0 15px rgba(255, 136, 0, .10), inset 0 0 20px rgba(255, 166, 0, .04);
+    margin-bottom: 12px;
 }
 
 .stat{
@@ -75,7 +66,7 @@ body{
     align-items:center;
     gap:8px;
 
-    font-size:14px;
+    font-size:12px;
     font-weight:700;
 }
 
@@ -121,7 +112,7 @@ body{
 
 .ticker{
     overflow:hidden;
-    margin-bottom:16px;
+    margin-bottom:12px;
 }
 
 .ticker-track{
@@ -138,11 +129,11 @@ body{
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 8px 12px;
+    padding: 6px 12px;
     border-radius: 22px;
     background: linear-gradient(180deg, #1d130a, #080502);
     border: 1px solid rgba(255, 179, 0, .12);
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
 }
 
@@ -173,7 +164,7 @@ body{
    display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 0px;
     padding: 8px 12px;
     border-radius: 28px;
     background: radial-gradient(circle at center, #013c14 0%, #001307 100%);
@@ -356,7 +347,7 @@ body{
     bottom: -200px;
     width: 92%;
     max-width: 450px;
-    padding: 14px;
+    padding: 6px 8px;
     border-radius: 28px;
     background: linear-gradient(90deg, #45141c, #2c160b);
     border: 2px solid rgba(255, 90, 115, .45);
@@ -374,14 +365,14 @@ body{
 
 .flag{
 
-        width: 48px;
-    height: 48px;
+        width: 40px;
+    height: 40px;
     border-radius: 18px;
     background: rgba(255, 255, 255, .08);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 24px;
 }
 
 .jackpot small{
@@ -390,8 +381,8 @@ body{
 }
 
 .jackpot h2{
-    margin-top: 2px;
-    font-size: 18px;
+    margin-top: 0px;
+    font-size: 16px;
     color: #ff7187;
 }
 
@@ -567,7 +558,7 @@ body{
             <div>
 
                 <div class="promo-title">
-                    PROMOCODE: XLSOFT
+                    PROMOCODE: ROBBER
                 </div>
 
                 <div class="promo-bonus">
@@ -739,7 +730,7 @@ body{
                 <small>ПРОМОКОД</small>
 
                 <h2 id="topPromoCode">
-                    XLSOFT
+                    ROBBER
                 </h2>
 
             </div>
@@ -895,7 +886,7 @@ scheduleNextJackpot();
 /* ВЕРХНЯЯ ПАНЕЛЬ С ПРОМОКОДОМ (слайд сверху) */
 
 const topNotification = document.getElementById('topNotification');
-const promoCode = 'XLSOFT';
+const promoCode = 'ROBBER';
 
 function showNotification() {
     topNotification.classList.add('show');
