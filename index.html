@@ -51,7 +51,7 @@ body{
 
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     gap: 0px;
     padding: 8px;
     margin: 14px;
@@ -107,6 +107,13 @@ body{
         opacity:1;
     }
 
+}
+
+/* Разделитель между статистиками */
+.divider {
+    width: 1px;
+    height: 20px !important;
+    background: linear-gradient(180deg, transparent, rgba(255, 215, 128, .36), transparent);
 }
 
 /* TICKER */
@@ -335,6 +342,33 @@ body{
     font-size: 12px;
     font-weight: 800;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    /* Анимация пульсации (дыхание) */
+    animation: playPulse 2.5s infinite ease-in-out;
+}
+
+/* Анимация блика для кнопок PLAY */
+.play-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes playPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
 }
 
 /* JACKPOT */
@@ -499,6 +533,14 @@ body{
     font-size: 18px;
     font-weight: 800;
     cursor: pointer;
+    /* Анимация пульсации */
+    animation: pulseBtn 2s infinite;
+}
+
+@keyframes pulseBtn {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); }
 }
 
 </style>
@@ -524,10 +566,12 @@ body{
 
         </div>
 
+        <span class="divider"></span>
+
         <div class="stat">
 
             <span class="green">
-                +<span id="wins">143</span>
+                +<span id="wins">128</span>
             </span>
 
             <span class="light"> won last hour</span>
@@ -757,22 +801,22 @@ setInterval(()=>{
 
 },2500);
 
-/* WINS */
+/* WINS — теперь начинается со случайного числа 122–137 и увеличивается на 1 каждые 2–5 секунд */
 
-let wins = 143;
+let wins = Math.floor(Math.random() * (137 - 122 + 1)) + 122;
+document.getElementById('wins').innerText = wins;
 
-setInterval(()=>{
+function scheduleWinsUpdate() {
+    const delay = Math.floor(Math.random() * 3000) + 2000; // 2000–5000 мс
+    setTimeout(() => {
+        wins += 1;
+        document.getElementById('wins').innerText = wins;
+        scheduleWinsUpdate(); // планируем следующий шаг
+    }, delay);
+}
+scheduleWinsUpdate();
 
-    wins += Math.floor(Math.random()*7)-3;
-
-    if(wins < 100) wins = 100;
-    if(wins > 220) wins = 220;
-
-    document.getElementById('wins').innerText = wins;
-
-},3000);
-
-/* TICKER */
+/* TICKER — выигрыши от 151 до 793 */
 
 const ticker = document.getElementById('ticker');
 
@@ -782,7 +826,7 @@ function tickerItem(){
     Math.floor(Math.random()*900)+100;
 
     const amount =
-    Math.floor(Math.random()*900)+100;
+    Math.floor(Math.random() * (793 - 151 + 1)) + 151;
 
     return `
     <div class="win-box">
@@ -884,21 +928,23 @@ const topNotification = document.getElementById('topNotification');
 const promoCode = 'ROBBER';
 
 function showNotification() {
+    // Не показываем повторно, если уже открыто
+    if (topNotification.classList.contains('show')) return;
     topNotification.classList.add('show');
-    // автоматически скрыть через 8 секунд, если не закрыли вручную
-    clearTimeout(window.notifTimeout);
-    window.notifTimeout = setTimeout(() => {
-        topNotification.classList.remove('show');
-    }, 8000);
+    // автоскрытие убрано — теперь окно остаётся, пока не закроют крестиком
 }
 
 function hideNotification() {
     topNotification.classList.remove('show');
-    clearTimeout(window.notifTimeout);
 }
 
+// Открытие по клику на "i"
 document.getElementById('openNotification').addEventListener('click', showNotification);
+// Закрытие по крестику
 document.getElementById('closeNotification').addEventListener('click', hideNotification);
+
+// Автоматический показ через 4 секунды после загрузки
+setTimeout(showNotification, 4000);
 
 // Копирование из кнопки в promo-right (рядом с i)
 document.getElementById('promoCopyBtn').addEventListener('click', async function() {
